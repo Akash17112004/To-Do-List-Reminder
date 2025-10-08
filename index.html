@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="background-effects">
+        <div class="gradient-sphere sphere-1"></div>
+        <div class="gradient-sphere sphere-2"></div>
+        <div class="grid-overlay"></div>
+        <div class="noise-overlay"></div>
+        <div class="particles-container" id="particles-container"></div>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <div class="content-wrapper">
+        <!-- Left Column: App Sections -->
+        <div class="main-column">
+            <main class="app-section">
+                <h1 id="main-title"></h1>
+                <form id="task-form">
+                    <input type="text" id="task-title" class="form-input" placeholder="Add a new task..." required>
+                    <div class="form-row">
+                        <input type="text" id="task-category" class="form-input" placeholder="Category">
+                        <input type="datetime-local" id="task-deadline" class="form-input">
+                        <select id="task-priority">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                        <button type="submit" class="btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                </form>
+                <div id="task-list"></div>
+            </main>
+        </div>
+
+        <!-- Right Column: Quote and Reminders -->
+        <aside class="sidebar-column">
+            <div id="quote-container" class="glass-box"></div>
+            <section id="reminders-container" class="glass-box">
+                <h2 id="reminders-title"></h2>
+                <div id="reminder-list"></div>
+            </section>
+        </aside>
+    </div>
+    
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
