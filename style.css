@@ -1,4 +1,4 @@
-/* style.css (bigger headings & nav; full-height quote; rest as before) */
+/* style.css (corrected + completed state hardening) */
 
 /* Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,7 +23,7 @@
 /* Panels */
 .app-section, .glass-box { background: rgba(23,19,44,.35); border: 1px solid rgba(255,255,255,.1); border-radius: 24px; padding: 2rem; backdrop-filter: blur(12px); }
 h1, h2 { font-weight: 800; color: #fff; text-align: center; letter-spacing: 0.2px; }
-h1 { font-size: 2.25rem; } /* text-4xl is applied in HTML; this increases base too */
+h1 { font-size: 2.25rem; }
 h2 { font-size: 1.5rem; }
 #main-title::after, #quote-container::after { content: '|'; animation: blink .7s infinite; }
 
@@ -52,6 +52,10 @@ h2 { font-size: 1.5rem; }
 .task-actions button { background: none; border: none; font-size: 1.05rem; color: rgba(255,255,255,.78); cursor: pointer; transition: color .2s; }
 .task-actions button:hover { color: #fff; }
 
+/* Completed state hardening */
+.task-item.completed .task-title { text-decoration: line-through !important; opacity: 0.55; }
+.task-item.completed { opacity: 0.85; }
+
 /* Toast */
 #toast-container { position: fixed; top: 1rem; left: 50%; transform: translateX(-50%); z-index: 1000; }
 .toast { background: #1c1933; color: #fff; padding: 1rem 1.25rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,.5); display: flex; align-items: center; gap: 1rem; }
@@ -64,7 +68,10 @@ h2 { font-size: 1.5rem; }
 .route.hidden { display: none; }
 
 /* Responsive */
-@media (max-width: 1200px) { .content-wrapper.tasks-wide { grid-template-columns: 1fr; } .quote-full { min-height: 220px; } }
+@media (max-width: 1200px) {
+  .content-wrapper.tasks-wide { grid-template-columns: 1fr; }
+  .quote-full { min-height: 220px; }
+}
 @media (max-width: 860px) {
   .form-row { grid-template-columns: 1fr 1fr 1fr; }
   #task-category { grid-column: 1 / 2; }
